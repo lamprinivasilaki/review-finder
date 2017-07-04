@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
 
-export default class Search extends Component {
+class Search extends Component {
 
 	constructor(props) {
 		super(props);
@@ -12,7 +12,7 @@ export default class Search extends Component {
 
 	handleChange(event) {
 		this.setState({
-			value: event
+			value: event.target.value
 		});
 	}
 
@@ -22,8 +22,16 @@ export default class Search extends Component {
 				<div className="Search-bar-intro">
 					Search reviews for your favorite game!
 				</div>
-				<div>value is '{this.value}'</div>
+				<input
+					type="text"
+					placeholder="Search here"
+					value={this.value}
+					onChange={this.handleChange}
+				/>
+				<div>value is `{this.state.value}`</div>
 			</div>
-		)
+		);
 	}
 }
+
+export default Search;

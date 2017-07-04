@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
-import SearchBar from 'material-ui-search-bar'
-import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import '../styles/App.css';
 
 export default class Search extends Component {
 
-	getChildContext() {
-		return { muiTheme: getMuiTheme(baseTheme) };
+	constructor(props) {
+		super(props);
+		this.state = { value: '' };
+
+		this.handleChange = this.handleChange.bind(this);
+	}
+
+	handleChange(event) {
+		this.setState({
+			value: event
+		});
 	}
 
 	render () {
@@ -16,21 +22,8 @@ export default class Search extends Component {
 				<div className="Search-bar-intro">
 					Search reviews for your favorite game!
 				</div>
-				<SearchBar
-					onChange={() => console.log('onChange')}
-					onRequestSearch={() => console.log('onRequestSearch')}
-					style={{
-						margin: '0 auto',
-						maxWidth: 800
-					}}
-				/>
+				<div>value is '{this.value}'</div>
 			</div>
 		)
 	}
 }
-
-Search.childContextTypes = {
-	muiTheme: React.PropTypes.object.isRequired,
-};
-
-// export default class Search

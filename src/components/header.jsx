@@ -12,7 +12,7 @@ export default class Header extends Component {
 
 			<p className="App-intro">
 				Find reviews from your favorite games on Review Finder.
-	        </p>
+			</p>
 		</div>
 	);
   }
